@@ -14,6 +14,13 @@ Every figure and claim on the page cites a numbered source. The page loads
 nothing from other sites: no trackers, no cookies, no fonts or scripts from
 elsewhere.
 
+## Published page
+
+https://lerdvw.github.io/USDemCongress2026/
+
+Every push to `main` rebuilds, checks and republishes it through GitHub Pages
+(`.github/workflows/pages.yml`).
+
 ## Files
 
 | File | What it holds |
