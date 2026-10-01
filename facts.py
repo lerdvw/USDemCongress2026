@@ -35,9 +35,9 @@ Source = namedtuple("Source", ["title", "publisher", "published", "url"])
 SOURCES = {
     # -- The election and Congress -----------------------------------------
     "constitution_article_1_section_7": Source(
-        "The Constitution of the United States, Article I, Section 7 (the veto and its override)",
-        "Congress.gov, Constitution Annotated", None,
-        "https://constitution.congress.gov/browse/article-1/section-7/"),
+        "The Constitution of the United States: A Transcription (Article I, Section 7: the veto and its override)",
+        "National Archives", None,
+        "https://www.archives.gov/founding-docs/constitution-transcript"),
     "senate_iran_veto_override_2020": Source(
         "Roll Call Vote 84, 116th Congress: overriding the veto of S.J.Res. 68 (U.S. forces in hostilities "
         "against Iran)",
