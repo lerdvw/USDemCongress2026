@@ -1,0 +1,7 @@
+__pycache__/
+.misc/
+.claude/
+.DS_Store
+
+# built by build.py
+index.html
