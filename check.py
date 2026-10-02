@@ -189,6 +189,8 @@ def comparisons():
          "the lowest income tenth loses and the highest gains"),
         (facts.PUBLIC_INTEGRITY_LAWYERS_SEPTEMBER_2025 < facts.PUBLIC_INTEGRITY_LAWYERS_START_2025,
          "the Public Integrity Section shrank in 2025"),
+        ((facts.IRAN_WAR_START - facts.MEDIATOR_BREAKTHROUGH_DAY).days == 1,
+         "the strikes began the day after the mediator's announcement"),
     ]
     for holds, what_the_page_says in comparisons_in_words:
         check(holds, f"the page says {what_the_page_says}, but the figures in facts.py disagree")

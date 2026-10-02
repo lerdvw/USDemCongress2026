@@ -146,6 +146,10 @@ SOURCES = {
         "https://www.kff.org/affordable-care-act/what-we-know-so-far-about-2026-aca-marketplace-enrollment-premiums-and-deductibles/"),
 
     # -- Truce Sealed ------------------------------------------------------
+    "cbs_oman_mediator_deal_within_reach": Source(
+        "U.S.-Iran deal is \"within our reach,\" Omani mediator says",
+        "CBS News (Margaret Brennan and Joe Walsh)", date(2026, 2, 27),
+        "https://www.cbsnews.com/news/us-iran-deal-within-our-reach-oman-mediator-says/"),
     "intercept_iran_war_casualties": Source(
         "U.S. Has Suffered More Casualties In Iran Since the Conclusion of Operation Epic Fury",
         "The Intercept", date(2026, 9, 28),
@@ -368,6 +372,10 @@ MARKETPLACE_MONTHLY_PREMIUM_2026_DOLLARS = 178
 # Truce Sealed: the Iran war, and the diplomacy that came before it
 # ===========================================================================
 
+# The day before the war: Oman's foreign minister, mediating, told CBS that
+# Iran had agreed to "zero stockpiling" with "full verification", technical
+# talks were set for Monday in Vienna, and the President said "no enrichment".
+MEDIATOR_BREAKTHROUGH_DAY = date(2026, 2, 27)
 IRAN_WAR_START = date(2026, 2, 28)                 # US-Israeli strikes begin (Operation Epic Fury)
 
 # The Pentagon's own counts, as The Intercept reported them on 28 Sep. ABC
@@ -480,6 +488,7 @@ PAGE_FIGURES = {
     "marketplace_monthly_premium_2026": whole_dollars(MARKETPLACE_MONTHLY_PREMIUM_2026_DOLLARS),
 
     # Truce Sealed
+    "mediator_breakthrough_day": month_and_day(MEDIATOR_BREAKTHROUGH_DAY),
     "iran_war_start_long": long_date(IRAN_WAR_START),
     "iran_war_us_deaths": str(IRAN_WAR_US_DEATHS),
     "iran_war_us_killed_or_wounded": str(IRAN_WAR_US_KILLED_OR_WOUNDED),
