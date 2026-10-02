@@ -203,7 +203,7 @@ a:hover {
 
 
 /* --------------------------------------------------------------------------
-   Hero: the ask and the Three T's
+   Hero: the ask and its three promises
    -------------------------------------------------------------------------- */
 
 .hero {
@@ -242,8 +242,8 @@ a:hover {
   text-underline-offset: 0.12em;
 }
 
-/* The Three T's, one per line. Each first letter is picked out in red. */
-.three-ts {
+/* The three promises, one per line. Each line's rhyming word is picked out in red. */
+.slogans {
   list-style: none;
   margin: 0 0 1.75rem;
   padding: 0;
@@ -254,20 +254,20 @@ a:hover {
   text-transform: uppercase;
 }
 
-.three-ts li + li {
+.slogans li + li {
   margin-top: 0.15em;
 }
 
-.three-ts a {
+.slogans a {
   color: inherit;
   text-decoration: none;
 }
 
-.three-ts a:hover {
+.slogans a:hover {
   color: var(--color-on-navy-muted);
 }
 
-.initial-t {
+.rhyme {
   color: #ff4d5e;
 }
 
@@ -535,7 +535,7 @@ a:hover {
 
 
 /* --------------------------------------------------------------------------
-   The Three T's, one card each
+   The three promises, one card each
    -------------------------------------------------------------------------- */
 
 .result-list {
@@ -556,7 +556,7 @@ a:hover {
   margin-bottom: 0.75rem;
 }
 
-/* The big red T beside each slogan */
+/* The big red letter beside each slogan */
 .result-letter {
   flex: none;
   display: inline-flex;

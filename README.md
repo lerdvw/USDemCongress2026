@@ -2,13 +2,15 @@
 
 A one-page, mobile-first case for electing a veto-proof Democratic Congress
 on Tuesday, November 3, 2026. It makes three asks (register, recruit a
-recruiter, vote) and three promises, the Three T's:
+recruiter, vote) and three promises:
 
-- **Truth Revealed**: subpoenas and sworn answers on the Epstein files, the
+- **Facts Found**: subpoenas and sworn answers on the Epstein files, the
   price rises, the Iran war, and apparent bribery that goes unprosecuted.
-- **Tariffs Repealed**: lower prices, high-wage clean-energy jobs, and a
-  Congress that works for working families before billionaires.
-- **Truce Sealed**: an end to the war with Iran, and a return to diplomacy.
+- **Prices Down**: tariffs refocused on good jobs and lower prices, high-wage
+  clean-energy jobs, and a Congress that works for working families before
+  billionaires.
+- **Peace Sound**: an end to the war with Iran, and a deal that inspectors can
+  verify.
 
 Every figure and claim on the page cites a numbered source. The page loads
 nothing from other sites: no trackers, no cookies, no fonts or scripts from
