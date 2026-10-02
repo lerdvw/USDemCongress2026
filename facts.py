@@ -432,6 +432,11 @@ def dollars_and_cents(amount):
     return f"${amount:,.2f}"
 
 
+def vote_tally(yeas, nays):
+    """A vote as "50–48", kept on one line: word joiners (U+2060) stop a break at the dash."""
+    return f"{yeas}\u2060–\u2060{nays}"
+
+
 def count_in_words(count):
     """Small counts as a reader would write them: 3 as "three"."""
     return ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
@@ -454,13 +459,13 @@ PAGE_FIGURES = {
     "house_seats_for_veto_proof_majority": str(HOUSE_SEATS_FOR_VETO_PROOF_MAJORITY),
     "senate_seats_for_veto_proof_majority": str(SENATE_SEATS_FOR_VETO_PROOF_MAJORITY),
     "senate_race_count": str(SENATE_RACE_COUNT),
-    "iran_2020_override_vote": f"{IRAN_2020_OVERRIDE_VOTE_YEAS}–{IRAN_2020_OVERRIDE_VOTE_NAYS}",
+    "iran_2020_override_vote": vote_tally(IRAN_2020_OVERRIDE_VOTE_YEAS, IRAN_2020_OVERRIDE_VOTE_NAYS),
 
     # Voting
     "voting_plan_turnout_gain_points": "4.1",      # Nickerson and Rogers (2010), abstract
 
     # Truth Revealed
-    "epstein_act_house_vote": f"{EPSTEIN_ACT_HOUSE_YEAS}–{EPSTEIN_ACT_HOUSE_NAYS}",
+    "epstein_act_house_vote": vote_tally(EPSTEIN_ACT_HOUSE_YEAS, EPSTEIN_ACT_HOUSE_NAYS),
     "epstein_act_days_to_publish": str(EPSTEIN_ACT_DAYS_TO_PUBLISH),
     "prices_percent_rise_all_items": f"{PRICES_PERCENT_RISE_ALL_ITEMS}%",
     "prices_percent_rise_gasoline": f"{PRICES_PERCENT_RISE_GASOLINE}%",
@@ -496,8 +501,8 @@ PAGE_FIGURES = {
     "gas_price_today": dollars_and_cents(GAS_PRICE_TODAY_DOLLARS),
     "gas_price_year_ago": dollars_and_cents(GAS_PRICE_YEAR_AGO_DOLLARS),
     "house_iran_war_resolutions_passed": count_in_words(HOUSE_IRAN_WAR_RESOLUTIONS_PASSED),
-    "senate_iran_vote_june_23": f"{SENATE_IRAN_VOTE_JUNE_23_YEAS}–{SENATE_IRAN_VOTE_JUNE_23_NAYS}",
-    "senate_iran_vote_september_24": f"{SENATE_IRAN_VOTE_SEPTEMBER_24_YEAS}–{SENATE_IRAN_VOTE_SEPTEMBER_24_NAYS}",
+    "senate_iran_vote_june_23": vote_tally(SENATE_IRAN_VOTE_JUNE_23_YEAS, SENATE_IRAN_VOTE_JUNE_23_NAYS),
+    "senate_iran_vote_september_24": vote_tally(SENATE_IRAN_VOTE_SEPTEMBER_24_YEAS, SENATE_IRAN_VOTE_SEPTEMBER_24_NAYS),
     "jcpoa_enrichment_cap": f"{JCPOA_ENRICHMENT_CAP_PERCENT}%",
     "jcpoa_stockpile_cap": f"{JCPOA_STOCKPILE_CAP_KILOGRAMS} kilograms",
 }
