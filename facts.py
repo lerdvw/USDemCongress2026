@@ -459,8 +459,6 @@ PAGE_FIGURES = {
     "senate_race_count": str(SENATE_RACE_COUNT),
     "iran_2020_override_vote": vote_tally(IRAN_2020_OVERRIDE_VOTE_YEAS, IRAN_2020_OVERRIDE_VOTE_NAYS),
 
-    # Voting
-    "voting_plan_turnout_gain_points": "4.1",      # Nickerson and Rogers (2010), abstract
 
     # Truth Revealed
     "epstein_act_house_vote": vote_tally(EPSTEIN_ACT_HOUSE_YEAS, EPSTEIN_ACT_HOUSE_NAYS),
