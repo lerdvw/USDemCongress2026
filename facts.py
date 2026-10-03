@@ -181,6 +181,15 @@ SOURCES = {
         "Timeline of Nuclear Diplomacy With Iran",
         "Arms Control Association", None,
         "https://www.armscontrol.org/factsheets/Timeline-of-Nuclear-Diplomacy-With-Iran"),
+    "crs_us_strikes_on_iran_nuclear_sites": Source(
+        "U.S. Strikes on Nuclear Sites in Iran (IN12571)",
+        "Congressional Research Service, via EveryCRSReport", date(2025, 6, 23),
+        "https://www.everycrsreport.com/reports/IN12571.html"),
+    "dni_written_opening_statement_2026": Source(
+        "Opening Statement of Director of National Intelligence Tulsi Gabbard, as written for the Open Hearing: "
+        "Worldwide Threats (page 7)",
+        "U.S. Senate Select Committee on Intelligence", date(2026, 3, 18),
+        "https://www.intelligence.senate.gov/wp-content/uploads/2026/03/os-gabbard-031826.pdf"),
 }
 
 
@@ -394,6 +403,22 @@ MARKETPLACE_MONTHLY_PREMIUM_2026_DOLLARS = 178
 MEDIATOR_BREAKTHROUGH_DAY = date(2026, 2, 27)
 IRAN_WAR_START = date(2026, 2, 28)                 # US-Israeli strikes begin (Operation Epic Fury)
 
+# Operation Midnight Hammer, the U.S. strikes on Iran's Fordow, Natanz and
+# Isfahan nuclear sites: "on the evening of June 21, 2025" in Washington
+# (CRS IN12571, 23 Jun 2025), the early hours of June 22 in Iran.
+MIDNIGHT_HAMMER_DAY = date(2025, 6, 21)
+
+# The Senate Intelligence Committee's Worldwide Threats hearing. The Director
+# of National Intelligence's written opening statement (page 7) says: "As a
+# result of Operation Midnight Hammer, Iran's nuclear enrichment program was
+# obliterated. There has been no efforts since then to try to rebuild their
+# enrichment capability. The entrances to the underground facilities that
+# were bombed have been buried and shuttered with cement."
+THREAT_HEARING_DAY = date(2026, 3, 18)
+
+DAYS_FROM_WAR_START_TO_THREAT_HEARING = (THREAT_HEARING_DAY - IRAN_WAR_START).days
+MONTHS_FROM_MIDNIGHT_HAMMER_TO_WAR = whole_months_between(MIDNIGHT_HAMMER_DAY, IRAN_WAR_START)
+
 # The Pentagon's own counts, as The Intercept reported them on 28 Sep. ABC
 # News gave 18 dead on 1 Oct, and officials have alleged an undercount; the
 # page uses the Pentagon's figures.
@@ -456,7 +481,8 @@ def vote_tally(yeas, nays):
 def count_in_words(count):
     """Small counts as a reader would write them: 3 as "three"."""
     return ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-            "eleven", "twelve"][count]
+            "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+            "nineteen", "twenty"][count]
 
 
 PAGE_FIGURES = {
@@ -511,6 +537,8 @@ PAGE_FIGURES = {
     # Peace Sound
     "mediator_breakthrough_day": month_and_day(MEDIATOR_BREAKTHROUGH_DAY),
     "iran_war_start_long": long_date(IRAN_WAR_START),
+    "days_from_war_start_to_threat_hearing": count_in_words(DAYS_FROM_WAR_START_TO_THREAT_HEARING).capitalize(),
+    "months_from_midnight_hammer_to_war": count_in_words(MONTHS_FROM_MIDNIGHT_HAMMER_TO_WAR),
     "iran_war_us_deaths": str(IRAN_WAR_US_DEATHS),
     "iran_war_us_killed_or_wounded": str(IRAN_WAR_US_KILLED_OR_WOUNDED),
     "iran_war_cost_billions": f"{IRAN_WAR_COST_BILLIONS:.1f}",
@@ -532,6 +560,8 @@ DERIVED_FIGURE_NAMES = (
     "senate_race_count",
     "months_since_four_to_five_weeks_remark",
     "days_from_swiss_gifts_to_tariff_deal",
+    "days_from_war_start_to_threat_hearing",
+    "months_from_midnight_hammer_to_war",
     "iran_war_cost_billions",
     "gas_price_today",
     "gas_price_year_ago",

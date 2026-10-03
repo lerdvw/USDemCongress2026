@@ -116,7 +116,8 @@ def months_by_counting(earlier_day, later_day):
 
 # How the page writes a small count at the start of a sentence.
 NUMBER_NAMES = {1: "One", 2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight",
-                9: "Nine", 10: "Ten", 11: "Eleven", 12: "Twelve"}
+                9: "Nine", 10: "Ten", 11: "Eleven", 12: "Twelve", 13: "Thirteen", 14: "Fourteen", 15: "Fifteen",
+                16: "Sixteen", 17: "Seventeen", 18: "Eighteen", 19: "Nineteen", 20: "Twenty"}
 
 
 def cents(amount):
@@ -159,6 +160,10 @@ def derived_figures():
                                                                                   facts.FACTS_CHECKED_ON)],
         "days_from_swiss_gifts_to_tariff_deal": NUMBER_NAMES[
             facts.SWISS_TARIFF_DEAL_DAY.toordinal() - facts.SWISS_GIFTS_DAY.toordinal()].lower(),
+        "days_from_war_start_to_threat_hearing": NUMBER_NAMES[
+            facts.THREAT_HEARING_DAY.toordinal() - facts.IRAN_WAR_START.toordinal()],
+        "months_from_midnight_hammer_to_war": NUMBER_NAMES[months_by_counting(facts.MIDNIGHT_HAMMER_DAY,
+                                                                              facts.IRAN_WAR_START)].lower(),
         "iran_war_cost_billions": str(Decimal(str(facts.IRAN_WAR_COST_THROUGH_SEPTEMBER_3_BILLIONS))
                                       + Decimal(str(facts.IRAN_WAR_EXTRA_FUEL_BILLIONS))),
         "gas_price_today": cents(facts.GAS_PRICE_TODAY_DOLLARS),
@@ -193,6 +198,8 @@ def comparisons():
          "the Public Integrity Section shrank in 2025"),
         ((facts.IRAN_WAR_START - facts.MEDIATOR_BREAKTHROUGH_DAY).days == 1,
          "the strikes began the day after the mediator's announcement"),
+        (facts.MIDNIGHT_HAMMER_DAY < facts.IRAN_WAR_START < facts.THREAT_HEARING_DAY,
+         "the June 2025 strikes came before the war, and the threat hearing after it began"),
         (facts.SWISS_TARIFF_AFTER_DEAL_PERCENT < facts.SWISS_TARIFF_BEFORE_DEAL_PERCENT,
          "the Swiss deal cut tariffs"),
         (facts.SWISS_GIFTS_DAY < facts.SWISS_TARIFF_DEAL_DAY,
