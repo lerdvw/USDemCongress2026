@@ -596,6 +596,16 @@ a:hover {
   margin-top: 0.6rem;
 }
 
+/* Sub-points inside a point, such as the gifts under the bribery point */
+.result-subpoints {
+  margin: 0.5rem 0 0.6rem;
+  padding-left: 1.1rem;
+}
+
+.result-points .result-subpoints li + li {
+  margin-top: 0.4rem;
+}
+
 /* "How Congress delivers it": the power that makes the promise real */
 .result-lever {
   margin: 0 0 1rem;
