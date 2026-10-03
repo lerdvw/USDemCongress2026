@@ -53,15 +53,10 @@ SOURCES = {
         "https://ballotpedia.org/United_States_Senate_elections,_2026"),
 
     # -- Registering and voting --------------------------------------------
-    "texas_registration_deadline": Source(
-        "Texas Secretary of State Reminds Voters: October 5 Deadline to Register to Vote in November "
-        "General Election",
-        "Texas Secretary of State", date(2026, 9, 28),
-        "https://www.sos.state.tx.us/about/newsreleases/2026/092826.shtml"),
-    "georgia_registration_deadline": Source(
-        "Georgia General Election 2026 (last day to register: October 5)",
-        "Georgia.gov", None,
-        "https://georgia.gov/georgia-general-election-2026"),
+    "national_voter_registration_act": Source(
+        "52 U.S.C. 20507(a)(1): the National Voter Registration Act's registration deadlines",
+        "Legal Information Institute, Cornell Law School", None,
+        "https://www.law.cornell.edu/uscode/text/52/20507"),
     "ncsl_same_day_registration": Source(
         "Same-Day Voter Registration",
         "National Conference of State Legislatures", date(2026, 3, 27),
@@ -193,8 +188,11 @@ SOURCES = {
 # works it out again from that rule.
 ELECTION_DAY = date(2026, 11, 3)
 
-# Texas and Georgia both close registration on this day (their own sites).
-TEXAS_AND_GEORGIA_REGISTRATION_DEADLINE = date(2026, 10, 5)
+# The earliest a state may close registration: federal law makes states accept
+# applications up to "the lesser of 30 days, or the period provided by State
+# law, before the date of the election" (52 U.S.C. 20507(a)(1)). The page names
+# no state's own deadline, since it stays up until Election Day.
+REGISTRATION_DEADLINE_EARLIEST_DAYS = 30
 
 
 # ===========================================================================
@@ -451,7 +449,7 @@ PAGE_FIGURES = {
     "election_day_short": month_and_day(ELECTION_DAY),
     "election_year": str(ELECTION_DAY.year),
     "facts_checked_on_long": long_date(FACTS_CHECKED_ON),
-    "texas_and_georgia_registration_deadline": month_and_day(TEXAS_AND_GEORGIA_REGISTRATION_DEADLINE),
+    "registration_deadline_earliest_days": str(REGISTRATION_DEADLINE_EARLIEST_DAYS),
 
     # Congress
     "house_seats": str(HOUSE_SEATS),
