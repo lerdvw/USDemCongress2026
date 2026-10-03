@@ -108,6 +108,27 @@ SOURCES = {
         "The powerful gave Trump golden gifts. He gave them breaks.",
         "MS NOW (David Rohde and Lily Becker)", date(2026, 9, 23),
         "https://www.ms.now/news/trump-gifts-world-leaders-tariffs"),
+    "fec_milton_trump_47_receipts": Source(
+        "Receipts of $100,000 or more from Trevor and Chelsey Milton, 2023-2024 (Trump 47 Committee, Inc., "
+        "October 10 and 17, 2024)",
+        "Federal Election Commission", None,
+        "https://www.fec.gov/data/receipts/?data_type=processed&contributor_name=Milton%2C+Trevor"
+        "&contributor_name=Milton%2C+Chelsey&two_year_transaction_period=2024&min_amount=100000"),
+    "doj_milton_sentenced": Source(
+        "Trevor Milton Sentenced To Four Years In Prison For Securities Fraud Scheme",
+        "U.S. Attorney's Office, Southern District of New York", date(2023, 12, 18),
+        "https://www.justice.gov/usao-sdny/pr/trevor-milton-sentenced-four-years-prison-securities-fraud-scheme"),
+    "ap_milton_pardon": Source(
+        "Trump's pardon of disgraced Nikola founder Trevor Milton could wipe out hundreds of millions in "
+        "restitution for his victims",
+        "Associated Press (Matt Ott), via Fortune", date(2025, 3, 28),
+        "https://fortune.com/2025/03/28/trump-pardon-nikola-trevor-milton-electric-vehicles-investor-restitution"),
+    "house_judiciary_pardons_inc_report": Source(
+        "Pardons, Inc.: How Trump and His Clemency-for-Cash Racket Let White-Collar Criminals and International "
+        "Drug Dealers Walk Free and Dodge Billions in Restitution Owed to Their Victims (staff report, pages 5-6)",
+        "Democratic staff, House Committee on the Judiciary", date(2026, 8, 21),
+        "https://democrats-judiciary.house.gov/sites/evo-subsites/democrats-judiciary.house.gov/files/"
+        "evo-media-document/2026-08-hjc-dems-staff-report-pardons-inc.pdf"),
     "notus_public_integrity_section": Source(
         "The Justice Department Had 36 Lawyers Fighting Corruption Full-Time. Under Trump, It's Down to Two.",
         "NOTUS (Jose Pagliery), reprinted by The Washington Sun", date(2025, 9, 22),
@@ -341,6 +362,33 @@ SWISS_TARIFF_BEFORE_DEAL_PERCENT = 39
 SWISS_TARIFF_AFTER_DEAL_PERCENT = 15
 DAYS_FROM_SWISS_GIFTS_TO_TARIFF_DEAL = (SWISS_TARIFF_DEAL_DAY - SWISS_GIFTS_DAY).days
 
+# Bribery, third case: Nikola's founder, convicted in October 2022 of
+# securities and wire fraud for lying to investors and sentenced on 18 Dec
+# 2023 to four years in prison (DOJ SDNY; AP). Weeks before the 2024
+# election he and his wife gave the Trump 47 Committee, the joint
+# fundraising committee for the campaign and the party, these two sums (FEC
+# processed receipts of 10 and 17 Oct 2024; AP: "more than $1.8 million").
+# Readings of the restitution prosecutors asked the court to order:
+#   House Judiciary Democrats' staff report, 21 Aug 2026:
+#       "$695.2 million restitution calculation", filed two weeks before
+#       the pardon; "nearly $700 million" (used)
+#   CNBC, 28 Mar 2025 (not readable here; as summarised by search):
+#       $680 million to Nikola's shareholders and $15.2 million to one more
+#       victim, which add up to the same figure
+#   AP, 28 Mar 2025: "hundreds of millions of dollars in restitution that
+#       prosecutors were seeking"
+# The pardon of 27 Mar 2025 wiped out the sentence, not yet begun pending
+# appeal, and any restitution.
+ELECTION_DAY_2024 = date(2024, 11, 5)
+MILTON_PRISON_SENTENCE_YEARS = 4
+MILTON_DONATIONS_TO_TRUMP_47_DOLLARS = (920_000, 924_600)
+MILTON_DONATIONS_LAST_DAY = date(2024, 10, 17)
+MILTON_RESTITUTION_SOUGHT_MILLIONS = 695.2
+MILTON_PARDON_DAY = date(2025, 3, 27)
+
+MILTON_DONATIONS_TOTAL_DOLLARS = sum(MILTON_DONATIONS_TO_TRUMP_47_DOLLARS)
+MONTHS_FROM_MILTON_DONATIONS_TO_PARDON = whole_months_between(MILTON_DONATIONS_LAST_DAY, MILTON_PARDON_DAY)
+
 # Why it goes unprosecuted: the Justice Department's Public Integrity Section
 # in 2025. Two readings of its size:
 #   NOTUS, 22 Sep 2025:              36 full-time lawyers in January, 2 by September (used)
@@ -516,6 +564,10 @@ PAGE_FIGURES = {
     "days_from_swiss_gifts_to_tariff_deal": count_in_words(DAYS_FROM_SWISS_GIFTS_TO_TARIFF_DEAL),
     "swiss_tariff_before_deal": f"{SWISS_TARIFF_BEFORE_DEAL_PERCENT}%",
     "swiss_tariff_after_deal": f"{SWISS_TARIFF_AFTER_DEAL_PERCENT}%",
+    "milton_donations_total": f"${MILTON_DONATIONS_TOTAL_DOLLARS / 1_000_000:.1f} million",
+    "milton_prison_sentence_years": count_in_words(MILTON_PRISON_SENTENCE_YEARS),
+    "milton_restitution_sought": f"${MILTON_RESTITUTION_SOUGHT_MILLIONS:.0f} million",
+    "months_from_milton_donations_to_pardon": count_in_words(MONTHS_FROM_MILTON_DONATIONS_TO_PARDON).capitalize(),
     "public_integrity_lawyers_start_2025": str(PUBLIC_INTEGRITY_LAWYERS_START_2025),
     "public_integrity_lawyers_september_2025": count_in_words(PUBLIC_INTEGRITY_LAWYERS_SEPTEMBER_2025),
 
@@ -560,6 +612,9 @@ DERIVED_FIGURE_NAMES = (
     "senate_race_count",
     "months_since_four_to_five_weeks_remark",
     "days_from_swiss_gifts_to_tariff_deal",
+    "milton_donations_total",
+    "milton_restitution_sought",
+    "months_from_milton_donations_to_pardon",
     "days_from_war_start_to_threat_hearing",
     "months_from_midnight_hammer_to_war",
     "iran_war_cost_billions",

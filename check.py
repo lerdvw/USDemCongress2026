@@ -55,13 +55,19 @@ def read_file(relative_path):
 # The facts
 # ---------------------------------------------------------------------------
 
-def election_day():
+def tuesday_after_first_monday_in_november(year):
     """Election Day is the Tuesday after the first Monday in November (2 U.S.C. 7)."""
-    first_of_november = date(facts.ELECTION_DAY.year, 11, 1)
+    first_of_november = date(year, 11, 1)
     days_until_first_monday = (0 - first_of_november.weekday()) % 7   # Monday is weekday 0
-    first_monday = first_of_november + timedelta(days=days_until_first_monday)
-    check(facts.ELECTION_DAY == first_monday + timedelta(days=1),
+    return first_of_november + timedelta(days=days_until_first_monday + 1)
+
+
+def election_day():
+    """Both election days the page relies on follow the rule."""
+    check(facts.ELECTION_DAY == tuesday_after_first_monday_in_november(facts.ELECTION_DAY.year),
           "ELECTION_DAY is not the Tuesday after the first Monday in November")
+    check(facts.ELECTION_DAY_2024 == tuesday_after_first_monday_in_november(2024),
+          "ELECTION_DAY_2024 is not the Tuesday after the first Monday in November 2024")
     check(facts.FACTS_CHECKED_ON < facts.ELECTION_DAY, "FACTS_CHECKED_ON is not before Election Day")
     print(f"election day    {facts.ELECTION_DAY:%A} {facts.ELECTION_DAY.day} {facts.ELECTION_DAY:%B %Y}")
 
@@ -160,6 +166,13 @@ def derived_figures():
                                                                                   facts.FACTS_CHECKED_ON)],
         "days_from_swiss_gifts_to_tariff_deal": NUMBER_NAMES[
             facts.SWISS_TARIFF_DEAL_DAY.toordinal() - facts.SWISS_GIFTS_DAY.toordinal()].lower(),
+        "milton_donations_total": "$" + str((Decimal(facts.MILTON_DONATIONS_TO_TRUMP_47_DOLLARS[0])
+                                             + Decimal(facts.MILTON_DONATIONS_TO_TRUMP_47_DOLLARS[1]))
+                                            .scaleb(-6).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)) + " million",
+        "milton_restitution_sought": "$" + str(Decimal(str(facts.MILTON_RESTITUTION_SOUGHT_MILLIONS))
+                                               .quantize(Decimal("1"), rounding=ROUND_HALF_UP)) + " million",
+        "months_from_milton_donations_to_pardon": NUMBER_NAMES[months_by_counting(facts.MILTON_DONATIONS_LAST_DAY,
+                                                                                  facts.MILTON_PARDON_DAY)],
         "days_from_war_start_to_threat_hearing": NUMBER_NAMES[
             facts.THREAT_HEARING_DAY.toordinal() - facts.IRAN_WAR_START.toordinal()],
         "months_from_midnight_hammer_to_war": NUMBER_NAMES[months_by_counting(facts.MIDNIGHT_HAMMER_DAY,
@@ -204,6 +217,11 @@ def comparisons():
          "the Swiss deal cut tariffs"),
         (facts.SWISS_GIFTS_DAY < facts.SWISS_TARIFF_DEAL_DAY,
          "the Swiss gifts came before the tariff deal"),
+        (len(facts.MILTON_DONATIONS_TO_TRUMP_47_DOLLARS) == 2
+         and facts.MILTON_DONATIONS_TOTAL_DOLLARS > 1_800_000,
+         "the Miltons' two donations came to more than $1.8 million"),
+        (facts.MILTON_DONATIONS_LAST_DAY < facts.ELECTION_DAY_2024 < facts.MILTON_PARDON_DAY,
+         "the Miltons gave before the 2024 election, and the pardon came after it"),
     ]
     for holds, what_the_page_says in comparisons_in_words:
         check(holds, f"the page says {what_the_page_says}, but the figures in facts.py disagree")
