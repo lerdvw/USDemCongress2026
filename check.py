@@ -157,6 +157,8 @@ def derived_figures():
                                  + [kind for state, kind, party in facts.SENATE_RACES_2026].count("special")),
         "months_since_four_to_five_weeks_remark": NUMBER_NAMES[months_by_counting(facts.FOUR_TO_FIVE_WEEKS_REMARK_DAY,
                                                                                   facts.FACTS_CHECKED_ON)],
+        "days_from_swiss_gifts_to_tariff_deal": NUMBER_NAMES[
+            facts.SWISS_TARIFF_DEAL_DAY.toordinal() - facts.SWISS_GIFTS_DAY.toordinal()].lower(),
         "iran_war_cost_billions": str(Decimal(str(facts.IRAN_WAR_COST_THROUGH_SEPTEMBER_3_BILLIONS))
                                       + Decimal(str(facts.IRAN_WAR_EXTRA_FUEL_BILLIONS))),
         "gas_price_today": cents(facts.GAS_PRICE_TODAY_DOLLARS),
@@ -191,6 +193,10 @@ def comparisons():
          "the Public Integrity Section shrank in 2025"),
         ((facts.IRAN_WAR_START - facts.MEDIATOR_BREAKTHROUGH_DAY).days == 1,
          "the strikes began the day after the mediator's announcement"),
+        (facts.SWISS_TARIFF_AFTER_DEAL_PERCENT < facts.SWISS_TARIFF_BEFORE_DEAL_PERCENT,
+         "the Swiss deal cut tariffs"),
+        (facts.SWISS_GIFTS_DAY < facts.SWISS_TARIFF_DEAL_DAY,
+         "the Swiss gifts came before the tariff deal"),
     ]
     for holds, what_the_page_says in comparisons_in_words:
         check(holds, f"the page says {what_the_page_says}, but the figures in facts.py disagree")

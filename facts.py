@@ -96,14 +96,18 @@ SOURCES = {
         "How long will the Iran war last? See Trump's timeline shift",
         "PolitiFact", date(2026, 3, 30),
         "https://politifact.com/article/2026/mar/30/trump-hegseth-iran-war-timeline/"),
-    "msnbc_homan_investigation": Source(
-        "Tom Homan was investigated for accepting $50,000 from undercover FBI agents. Trump's DOJ shut it down.",
-        "MSNBC (Carol Leonnig and Ken Dilanian)", date(2025, 9, 20),
-        "https://www.ms.now/msnbc/news/tom-homan-cash-contracts-trump-doj-investigation-rcna232568"),
-    "nbc_adams_case_dismissed": Source(
-        "NYC Mayor Eric Adams' corruption case dismissed; judge says charges can't be used as 'leverage'",
-        "NBC News", date(2025, 4, 2),
-        "https://www.nbcnews.com/news/us-news/eric-adams-corruption-case-permanently-dismissed-rcna199266"),
+    "abc_qatar_jet": Source(
+        "Trump administration poised to accept 'palace in the sky' as gift for Trump from Qatar",
+        "ABC News", date(2025, 5, 11),
+        "https://abcnews.com/Politics/trump-administration-poised-accept-palace-sky-gift-trump/story?id=121680511"),
+    "executive_order_qatar_security": Source(
+        "Executive Order 14353 of September 29, 2025: Assuring the Security of the State of Qatar",
+        "Federal Register, via govinfo.gov", date(2025, 10, 6),
+        "https://www.govinfo.gov/content/pkg/FR-2025-10-06/html/2025-19483.htm"),
+    "msnow_golden_gifts": Source(
+        "The powerful gave Trump golden gifts. He gave them breaks.",
+        "MS NOW (David Rohde and Lily Becker)", date(2026, 9, 23),
+        "https://www.ms.now/news/trump-gifts-world-leaders-tariffs"),
     "notus_public_integrity_section": Source(
         "The Justice Department Had 36 Lawyers Fighting Corruption Full-Time. Under Trump, It's Down to Two.",
         "NOTUS (Jose Pagliery), reprinted by The Washington Sun", date(2025, 9, 22),
@@ -313,11 +317,25 @@ def whole_months_between(earlier_day, later_day):
 
 MONTHS_SINCE_FOUR_TO_FIVE_WEEKS_REMARK = whole_months_between(FOUR_TO_FIVE_WEEKS_REMARK_DAY, FACTS_CHECKED_ON)
 
-# Bribery: the cash in the 2024 FBI sting MSNBC reported, and the Justice
-# Department's Public Integrity Section in 2025. Two readings of its size:
+# Bribery, first case: the jet Qatar's royal family gave, to fly as Air Force
+# One and then pass to the President's library foundation by 1 Jan 2029 (ABC,
+# 11 May 2025). Readings of its value: ABC "approximately $400 million" (used);
+# MS NOW "nearly $400 million". Executive Order 14353 followed on 29 Sep 2025.
+QATAR_JET_VALUE_MILLIONS = 400
+
+# Bribery, second case: Swiss executives' gifts (a 1-kilogram gold bar and a
+# gold Rolex desk clock, accepted for the President's library) and the deal
+# that cut tariffs on Swiss goods (MS NOW, 23 Sep 2026; NPR, 14 Nov 2025).
+SWISS_GIFTS_DAY = date(2025, 11, 4)
+SWISS_TARIFF_DEAL_DAY = date(2025, 11, 14)
+SWISS_TARIFF_BEFORE_DEAL_PERCENT = 39
+SWISS_TARIFF_AFTER_DEAL_PERCENT = 15
+DAYS_FROM_SWISS_GIFTS_TO_TARIFF_DEAL = (SWISS_TARIFF_DEAL_DAY - SWISS_GIFTS_DAY).days
+
+# Why it goes unprosecuted: the Justice Department's Public Integrity Section
+# in 2025. Two readings of its size:
 #   NOTUS, 22 Sep 2025:              36 full-time lawyers in January, 2 by September (used)
 #   Sen. Whitehouse, 13 Jul 2026:    "reportedly" forty, down to two
-HOMAN_STING_CASH_DOLLARS = 50_000
 PUBLIC_INTEGRITY_LAWYERS_START_2025 = 36
 PUBLIC_INTEGRITY_LAWYERS_SEPTEMBER_2025 = 2
 
@@ -469,7 +487,10 @@ PAGE_FIGURES = {
     "us_share_of_2025_tariff_cost": f"nearly {US_SHARE_OF_2025_TARIFF_COST_PERCENT} percent",
     "four_to_five_weeks_remark_day": month_and_day(FOUR_TO_FIVE_WEEKS_REMARK_DAY),
     "months_since_four_to_five_weeks_remark": count_in_words(MONTHS_SINCE_FOUR_TO_FIVE_WEEKS_REMARK).capitalize(),
-    "homan_sting_cash": whole_dollars(HOMAN_STING_CASH_DOLLARS),
+    "qatar_jet_value": f"${QATAR_JET_VALUE_MILLIONS} million",
+    "days_from_swiss_gifts_to_tariff_deal": count_in_words(DAYS_FROM_SWISS_GIFTS_TO_TARIFF_DEAL),
+    "swiss_tariff_before_deal": f"{SWISS_TARIFF_BEFORE_DEAL_PERCENT}%",
+    "swiss_tariff_after_deal": f"{SWISS_TARIFF_AFTER_DEAL_PERCENT}%",
     "public_integrity_lawyers_start_2025": str(PUBLIC_INTEGRITY_LAWYERS_START_2025),
     "public_integrity_lawyers_september_2025": count_in_words(PUBLIC_INTEGRITY_LAWYERS_SEPTEMBER_2025),
 
@@ -511,6 +532,7 @@ DERIVED_FIGURE_NAMES = (
     "senate_seats_for_veto_proof_majority",
     "senate_race_count",
     "months_since_four_to_five_weeks_remark",
+    "days_from_swiss_gifts_to_tariff_deal",
     "iran_war_cost_billions",
     "gas_price_today",
     "gas_price_year_ago",
