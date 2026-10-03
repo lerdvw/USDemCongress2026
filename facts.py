@@ -67,7 +67,7 @@ SOURCES = {
         "PubMed", None,
         "https://pubmed.ncbi.nlm.nih.gov/20424044/"),
 
-    # -- Truth Revealed ----------------------------------------------------
+    # -- Facts Found -------------------------------------------------------
     "house_vote_epstein_act": Source(
         "Roll Call 289: H.R. 4405, Epstein Files Transparency Act",
         "Clerk of the U.S. House of Representatives", date(2025, 11, 18),
@@ -117,7 +117,7 @@ SOURCES = {
         "Congressional Research Service, via EveryCRSReport", date(2019, 3, 27),
         "https://www.everycrsreport.com/reports/R45653.html"),
 
-    # -- Tariffs Repealed --------------------------------------------------
+    # -- Prices Down -------------------------------------------------------
     "supreme_court_tariff_ruling": Source(
         "Learning Resources, Inc. v. Trump, No. 24-1287 (syllabus)",
         "Supreme Court of the United States", date(2026, 2, 20),
@@ -144,7 +144,7 @@ SOURCES = {
         "KFF", date(2026, 5, 19),
         "https://www.kff.org/affordable-care-act/what-we-know-so-far-about-2026-aca-marketplace-enrollment-premiums-and-deductibles/"),
 
-    # -- Truce Sealed ------------------------------------------------------
+    # -- Peace Sound -------------------------------------------------------
     "cbs_oman_mediator_deal_within_reach": Source(
         "U.S.-Iran deal is \"within our reach,\" Omani mediator says",
         "CBS News (Margaret Brennan and Joe Walsh)", date(2026, 2, 27),
@@ -285,7 +285,7 @@ HOUSE_VACANCIES_NOW = 2                      # TX-23 and FL-20
 
 
 # ===========================================================================
-# Truth Revealed: the questions that need answers under oath
+# Facts Found: the questions that need answers under oath
 # ===========================================================================
 
 # The Epstein Files Transparency Act (H.R. 4405), as the House passed it.
@@ -341,7 +341,7 @@ PUBLIC_INTEGRITY_LAWYERS_SEPTEMBER_2025 = 2
 
 
 # ===========================================================================
-# Tariffs Repealed: prices, jobs, and working families
+# Prices Down: prices, jobs, and working families
 # ===========================================================================
 
 # Tariffs' cost per household in 2026. Two estimates, which measure different
@@ -385,7 +385,7 @@ MARKETPLACE_MONTHLY_PREMIUM_2026_DOLLARS = 178
 
 
 # ===========================================================================
-# Truce Sealed: the Iran war, and the diplomacy that came before it
+# Peace Sound: the Iran war, and the diplomacy that came before it
 # ===========================================================================
 
 # The day before the war: Oman's foreign minister, mediating, told CBS that
@@ -477,8 +477,7 @@ PAGE_FIGURES = {
     "senate_race_count": str(SENATE_RACE_COUNT),
     "iran_2020_override_vote": vote_tally(IRAN_2020_OVERRIDE_VOTE_YEAS, IRAN_2020_OVERRIDE_VOTE_NAYS),
 
-
-    # Truth Revealed
+    # Facts Found
     "epstein_act_house_vote": vote_tally(EPSTEIN_ACT_HOUSE_YEAS, EPSTEIN_ACT_HOUSE_NAYS),
     "epstein_act_days_to_publish": str(EPSTEIN_ACT_DAYS_TO_PUBLISH),
     "prices_percent_rise_all_items": f"{PRICES_PERCENT_RISE_ALL_ITEMS}%",
@@ -494,7 +493,7 @@ PAGE_FIGURES = {
     "public_integrity_lawyers_start_2025": str(PUBLIC_INTEGRITY_LAWYERS_START_2025),
     "public_integrity_lawyers_september_2025": count_in_words(PUBLIC_INTEGRITY_LAWYERS_SEPTEMBER_2025),
 
-    # Tariffs Repealed
+    # Prices Down
     "tariff_cost_per_household_2026": whole_dollars(TARIFF_COST_PER_HOUSEHOLD_2026_DOLLARS),
     "tariff_rate_steel_aluminum_copper": f"{TARIFF_RATE_STEEL_ALUMINUM_COPPER_PERCENT} percent",
     "tariff_rate_patented_drugs": f"{TARIFF_RATE_PATENTED_DRUGS_PERCENT} percent",
@@ -509,7 +508,7 @@ PAGE_FIGURES = {
     "marketplace_monthly_premium_2025": whole_dollars(MARKETPLACE_MONTHLY_PREMIUM_2025_DOLLARS),
     "marketplace_monthly_premium_2026": whole_dollars(MARKETPLACE_MONTHLY_PREMIUM_2026_DOLLARS),
 
-    # Truce Sealed
+    # Peace Sound
     "mediator_breakthrough_day": month_and_day(MEDIATOR_BREAKTHROUGH_DAY),
     "iran_war_start_long": long_date(IRAN_WAR_START),
     "iran_war_us_deaths": str(IRAN_WAR_US_DEATHS),
